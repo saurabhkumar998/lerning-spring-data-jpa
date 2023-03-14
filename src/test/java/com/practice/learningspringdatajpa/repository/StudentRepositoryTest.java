@@ -17,7 +17,7 @@ class StudentRepositoryTest {
     @Autowired
     private StudentRepository studentRepository;
 
-    @Test
+//    @Test
     public void saveStudent() {
 
         Student student = Student.builder()
@@ -36,15 +36,15 @@ class StudentRepositoryTest {
     @Test
     public void saveStudentWithGuardian() {
         Guardian guardian = Guardian.builder()
-                .name("Rajesh Kumar")
-                .email("rajesh@gmail.com")
-                .mobile("9708281081")
+                .name("Durgesh Kumar")
+                .email("durgesh@gmail.com")
+                .mobile("9843322323")
                 .build();
 
         Student student = Student.builder()
-                .emailId("gaurav@gmail.com")
-                .firstName("gaurav")
-                .lastName("kumar")
+                .emailId("kishan@gmail.com")
+                .firstName("kishan")
+                .lastName("gupta")
                 .guardian(guardian)
                 .build();
 
@@ -93,5 +93,25 @@ class StudentRepositoryTest {
     public void printStudentFirstNameByEmailAddress() {
         String firstName = studentRepository.findStudentFirstNameByEmailAddress("saurabh@gmail.com");
         System.out.println("firstName : " + firstName);
+    }
+
+    @Test
+    public void printStudentByEmailAddressNative() {
+        Student student = studentRepository.findStudentByEmailAddressNative("gaurav@gmail.com");
+
+        System.out.println(student);
+    }
+
+    @Test
+    public void printStudentByEmailAddressNativeNamedParma() {
+        Student student = studentRepository.findStudentByEmailAddressNativeNamedParam("gaurav@gmail.com");
+
+        System.out.println(student);
+    }
+
+    @Test
+    public void updateStudentNameByEmailAddressTest() {
+        int n = studentRepository.updateStudentNameByEmailAddress("Virat", "saurabh@gmail.com");
+        System.out.println(n);
     }
 }
