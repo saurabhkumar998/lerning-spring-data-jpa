@@ -42,8 +42,8 @@ class StudentRepositoryTest {
                 .build();
 
         Student student = Student.builder()
-                .emailId("saumya@gmail.com")
-                .firstName("saumya")
+                .emailId("gaurav@gmail.com")
+                .firstName("gaurav")
                 .lastName("kumar")
                 .guardian(guardian)
                 .build();
